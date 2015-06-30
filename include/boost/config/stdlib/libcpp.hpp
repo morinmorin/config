@@ -64,6 +64,16 @@
 #  define BOOST_NO_CXX11_ATOMIC_SMART_PTR
 #  define BOOST_NO_CXX11_HDR_ATOMIC
 
+#if defined(__has_include)
+#  if !__has_include(<shared_mutex>)
+#    define BOOST_NO_CXX14_HDR_SHARED_MUTEX
+#  elif __cplusplus <= 201103L
+#    define BOOST_NO_CXX14_HDR_SHARED_MUTEX
+#  endif
+#else
+#  define BOOST_NO_CXX14_HDR_SHARED_MUTEX
+#endif
+
 // libc++ uses a non-standard messages_base
 #define BOOST_NO_STD_MESSAGES
 
