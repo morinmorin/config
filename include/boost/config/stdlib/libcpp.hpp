@@ -65,9 +65,7 @@
 #  define BOOST_NO_CXX11_HDR_ATOMIC
 
 #if defined(__has_include)
-#  if !__has_include(<shared_mutex>)
-#    define BOOST_NO_CXX14_HDR_SHARED_MUTEX
-#  elif __cplusplus <= 201103L
+#  if !__has_include(<shared_mutex>) || __cplusplus <= 201103L
 #    define BOOST_NO_CXX14_HDR_SHARED_MUTEX
 #  endif
 #else
