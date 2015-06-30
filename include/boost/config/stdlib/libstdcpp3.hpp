@@ -235,6 +235,18 @@
 #  define BOOST_NO_CXX11_STD_ALIGN
 #endif
 
+//  C++14 headers
+//
+#if defined(__has_include)
+#  if !__has_include(<shared_mutex>)
+#    define BOOST_NO_CXX14_HDR_SHARED_MUTEX
+#  elif __cplusplus <= 201103L
+#    define BOOST_NO_CXX14_HDR_SHARED_MUTEX
+#  endif
+#else
+#  define BOOST_NO_CXX14_HDR_SHARED_MUTEX
+#endif
+
 //
 // Headers not present on Solaris with the Oracle compiler:
 #if defined(__SUNPRO_CC)
